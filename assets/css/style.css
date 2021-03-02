@@ -1,0 +1,135 @@
+.container-fluid{
+	margin:0;
+	padding:0;
+}
+
+#button {
+  display: inline-block;
+  background-color: rgb(97, 188, 241);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#button:active {
+  background-color: #555;
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*brend na sredina*/
+@media (min-width: 768px) {
+.navbar-brand
+    {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.table{
+  text-align: center;
+}
+.letovi{
+	padding-top: 20px;
+	margin-top: 55px;
+	background-image:url("../../uploads/let.jpg");
+	text-align: center;
+    color: #fff;
+   
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.letovi-text{
+	padding:100px 0 150px 0;
+}
+.patnici{
+	padding-top: 20px;
+	margin-top: 55px;
+	background-image:url("../../uploads/aaa.jpg");
+	text-align: center;
+    color: rgb(59, 167, 230);
+   height:500px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.rezervacii{
+	padding-top: 20px;
+	margin-top: 55px;
+	background-image:url("../../uploads/rezerva.jpg");
+	text-align: center;
+    color: rgb(0, 0, 0);
+   height:500px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.page-footer{
+  background-image: linear-gradient(#7986cb,#3f51b5);
+  color: #fff;
+  border-top-left-radius: 50% 20%;
+      border-top-right-radius: 50% 20%;
+}
+.mb-5 a{
+  color: #fff;
+}
+a:hover{
+  color: #ddd;
+}
+.mb-5 .fa-apple{
+  font-size: 2.5em;
+}
+.mb-5 .fa-android{
+  font-size: 2.5em;
+}
+.footer-copyright{
+  background-color: #283593;
+}
+.footer-copyright a{
+  color: rgb(140, 209, 230);
+}
+.text-uppercase a{
+  color: #fff;
+}
+hr{
+  border-color: rgb(180, 180, 180);
+}

@@ -1,0 +1,71 @@
+<div class="letovi">
+<div class="letovi-text">
+<h3>Letovi</h3>
+<div class="container" style="width:50%">
+<form name="myForm">
+<div class="row">
+<div class="col">
+  <label for="let_od" class="mr-sm-2"></label>
+  <div class="alert alert-danger" ng-show="myForm.let_od.$invalid && myForm.let_od.$dirty">Vnesi pocetna destinacija</div>
+  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Let od:" id="let_od" name="let_od" ng-model="let_od" required>
+  </div>
+  <div class="col">
+  <label for="let_preku" class="mr-sm-2"></label>
+  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Let preku:" id="let_preku" name="let_preku" ng-model="let_preku">
+  </div>
+  <div class="col">
+  <label for="let_do" class="mr-sm-2"></label>
+  <div class="alert alert-danger" ng-show="myForm.let_do.$invalid && myForm.let_do.$dirty">Vnesi krajna destinacija</div>
+  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Let do:" id="let_do" name="let_do" ng-model="let_do" required>
+  </div>
+  </div>
+  <div class="form-group">
+  <label for="klasa" class="mr-sm-2"></label>
+  <div class="alert alert-danger" ng-show="myForm.klasa.$invalid && myForm.klasa.$dirty">Vnesi klasa</div>
+  <input type="text" class="form-control mb-4" placeholder="Economy, Comfort or Business" id="klasa" ng-model="klasa" name="klasa" required>
+  </div>
+  <button type="submit" class="btn btn-primary mb-2" ng-click="details_letovi_fun(let_od, let_preku, let_do, klasa)">Submit</button>
+</form>
+</div>
+</div>
+</div>
+<br>
+
+<div class="container">
+<div class="table-responsive">
+<input class="form-control" id="myInput" type="text" placeholder="Search...">
+<br>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+	  
+	  <th>Let od</th>
+	  <th>Let preku</th>
+	  <th>Let do</th>
+	  <th>Klasa</th>
+	  <th>DELETE</th>
+	</tr>
+  </thead>
+  <tbody id="myTable">
+    <tr ng-repeat="let in letovi">
+	 
+	  <td>{{let.let_od}}</td>
+	  <td>{{let.let_preku}}</td>
+	  <td>{{let.let_do}}</td>
+	  <td>{{let.klasa}}</td>
+	  <td><button ng-click="deleteRow('letovi', let.let_id)"i class="fas fa-trash-alt"></i></td>
+	</tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>

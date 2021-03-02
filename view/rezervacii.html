@@ -1,0 +1,79 @@
+<div class="rezervacii">
+<h3>Rezervacii</h3>
+<div class="container" style="width:50%">
+<form name="myForm">
+  <div class="form-group">
+    <label for="let_id">Let:</label>
+    <select type="text" class="form-control" id="let_id" name="let_id" ng-model="let_id">
+  <option ng-repeat="let in letovi" value="{{let.let_id}}"> {{let.let_od}} - {{let.let_preku}} - {{let.let_do}} - {{let.klasa}} </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="patnik_id">Patnik:</label>
+    <select type="text" class="form-control" id="patnik_id" name="patnik_id" ng-model="patnik_id">
+    <option ng-repeat="patnik in patnici" value="{{patnik.patnik_id}}"> {{patnik.ime}} | {{patnik.adresa}} | {{patnik.vozrast}} </option>
+	</select>
+  </div>
+  <div class="form-group">
+    <label for="broj_patnici"></label>
+	<div class="alert alert-danger" ng-show="myForm.broj_patnici.$invalid && myForm.broj_patnici.$touched">Vnesi broj na patnici</div>
+    <input type="number" class="form-control" placeholder="Broj na patnici:" id="broj_patnici" name="broj_patnici" ng-model="broj_patnici" required>
+  </div>
+  <div class="form-group">
+    <label for="data"></label>
+    <input type="text" class="form-control" placeholder="Data:" id="data" name="data" ng-model="data">
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="details_rezervacii_fun(let_id, patnik_id, broj_patnici, data)">Submit</button>
+</form>
+</div>
+</div>
+<br>
+
+<div class="container">
+<div class="table-responsive">
+<input class="form-control" id="myInput" type="text" placeholder="Search...">
+<br>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+	  
+	  <th>Let od</th>
+	  <th>Let preku</th>
+	  <th>Let do</th>
+	  <th>Klasa</th>
+	  <th>Ime i prezime</th>
+	  <th>Adresa</th>
+	  <th>Vozrast</th>
+	  <th>Broj na patnici</th>
+	  <th>Data</th>
+	  <th>DELETE</th>
+	</tr>
+  </thead>
+  <tbody id="myTable">
+    <tr ng-repeat="rezervacija in rezervacii">
+	 
+	  <td>{{rezervacija.let_od}}</td>
+	  <td>{{rezervacija.let_preku}}</td>
+	  <td>{{rezervacija.let_do}}</td>
+	  <td>{{rezervacija.klasa}}</td>
+	  <td>{{rezervacija.ime}}</td>
+	  <td>{{rezervacija.adresa}}</td>
+	  <td>{{rezervacija.vozrast}}</td>
+	  <td>{{rezervacija.broj_patnici}}</td>
+	  <td>{{rezervacija.data}}</td>
+	  <td><button ng-click="deleteRow('rezervacii', rezervacija.rezervacija_id)"i class="fas fa-trash-alt"></i></td>
+	</tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
